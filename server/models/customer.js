@@ -15,7 +15,6 @@ const customerSchema = mongoose.Schema(
     // Hide password & __v from response
     toJSON: {
       transform(doc, ret) {
-        delete ret.password;
         delete ret.__v;
       },
     },

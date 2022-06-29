@@ -1,5 +1,4 @@
 import customerModal from "../models/customer.js";
-import addressModal from "../models/address.js";
 import { isValidId } from "../utils/index.js";
 
 /* -------------------------- create a new customer ------------------------- */
