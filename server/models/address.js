@@ -8,7 +8,7 @@ const addressSchema = mongoose.Schema(
   {
     timestamps: true,
 
-    // Hide password & __v from response
+    // __v from response
     toJSON: {
       transform(doc, ret) {
         delete ret.__v;
