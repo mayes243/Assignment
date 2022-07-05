@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import decode from "jwt-decode";
+
 function Navbar() {
   const auth = localStorage.getItem("token");
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +10,14 @@ function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // clear token if logged out
+    if (auth?.token) {
+      const decodedToken = decode(auth.token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime())
+        localStorage.clear() && navigate("/signin");
+    }
+    //
     setUser(JSON.parse(localStorage.getItem("token")));
     setIsOpen(false);
   }, [auth]);

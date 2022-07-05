@@ -1,6 +1,12 @@
 import * as Yup from "yup";
 
-const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
+const SUPPORTED_FORMATS = [
+  "image/jpg",
+  "image/jpeg",
+  "image/gif",
+  "image/png",
+  "image/jfif",
+];
 
 // signin validation
 export const SignInvalidation = Yup.object().shape({

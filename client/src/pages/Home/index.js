@@ -1,18 +1,9 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import { Address, User, UserDetails } from "../../components";
-import decode from "jwt-decode";
 
 function Home() {
   const [activeTab, setActiveTab] = useState("Address");
-  //
-  useLayoutEffect(() => {
-    const auth = JSON.parse(localStorage.getItem("token"));
-    if (auth?.token) {
-      const decodedToken = decode(auth.token);
 
-      if (decodedToken.exp * 1000 < new Date().getTime()) localStorage.clear();
-    }
-  }, [JSON.parse(localStorage.getItem("token"))]);
   return (
     <main>
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">

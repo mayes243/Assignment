@@ -8,7 +8,6 @@ const UserDetails = () => {
   const { profile } = useSelector((state) => state.userReducer);
 
   useEffect(() => {
-    console.log("UserDetails");
     dispatch(getCustomerProfile());
   }, []);
 
